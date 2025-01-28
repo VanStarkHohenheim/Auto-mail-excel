@@ -17,7 +17,7 @@ Script Python pour envoyer des emails personnalisés avec pièces jointes à par
 
 ### 1. Cloner le dépôt
 ```bash
-git clone https://github.com/votreuser/email-sender.git
+git clone https://github.com/VanStarkHohenheim/email-sender.git
 ```
 
 ### 2. Installer les dépendances
