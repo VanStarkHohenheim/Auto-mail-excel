@@ -14,13 +14,17 @@ Script Python pour envoyer des emails personnalisés avec pièces jointes à par
 3. Fichier Excel structuré avec une colonne d'emails
 
 ## 🚀 Installation
-```bash
+
 # 1. Cloner le dépôt
+```bash
 git clone https://github.com/votreuser/email-sender.git
 ```
 
 # 2. Installer les dépendances
+```bash
 pip install pandas openpyxl
+```
+
 🔧 Configuration
 1. Préparation du fichier Excel
 Structure minimale :
