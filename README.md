@@ -15,81 +15,77 @@ Script Python pour envoyer des emails personnalisés avec pièces jointes à par
 
 ## 🚀 Installation
 
-# 1. Cloner le dépôt
+### 1. Cloner le dépôt
 ```bash
 git clone https://github.com/votreuser/email-sender.git
 ```
 
-# 2. Installer les dépendances
+### 2. Installer les dépendances
 ```bash
 pip install pandas openpyxl
 ```
 
-🔧 Configuration
-1. Préparation du fichier Excel
-Structure minimale :
+### 🔧 Configuration
 
-Nom	Email
-John Doe	john@example.com
-Sauvegarder le fichier en .xlsx
+#### 1. Préparation du fichier Excel
+Structure minimale :  
 
-# 2. Configuration du script
-Créer un fichier .env :
+| Nom       | Email             |
+|-----------|-------------------|
+| John Doe  | john@example.com  |
 
-```python
+Sauvegarder le fichier en `.xlsx`.
+
+#### 2. Configuration du script
+Créer un fichier `.env` :
+
+```env
 ICLOUD_EMAIL="votre@icloud.com"
 ICLOUD_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"
 EXCEL_PATH="chemin/vers/fichier.xlsx"
 ATTACHMENT_PATH="chemin/vers/piece_jointe.pdf"
 ```
 
-# 3. Générer un mot de passe d'application Apple
+### 3. Générer un mot de passe d'application Apple
+- Aller sur [appleid.apple.com](https://appleid.apple.com)  
+- Section **"Sécurité"** → **"Générer un mot de passe..."**  
+- Utiliser ce mot de passe dans le fichier `.env`.
 
-Aller sur appleid.apple.com
+---
 
-Section "Sécurité" → "Générer un mot de passe..."
+### 🖥️ Utilisation
 
-Utiliser ce mot de passe dans le .env
-
-# 🖥️ Utilisation
-``` bash
-# Tester la connexion SMTP
-python test_connection.py
-```
-
-# Lancer l'envoi des emails
+### Lancer l'envoi des emails
 ```bash
 python main.py
 ```
 
-# ⚠️ Sécurité
-Ne jamais commiter le fichier .env
+### ⚠️ Sécurité
+- Ne jamais commiter le fichier `.env`.
+- Utiliser toujours des mots de passe d'application.
+- Vérifier les permissions du fichier Excel.
 
-Utiliser toujours des mots de passe d'application
+---
 
-Vérifier les permissions du fichier Excel
+### 🐛 Dépannage courant
 
-# 🐛 Dépannage courant
-Erreur d'authentification 535 :
-
-```bash
-
-# Solution :
+#### Erreur d'authentification 535
+```text
+Solution :
 - Régénérer le mot de passe d'application
 - Vérifier l'activation SMTP sur iCloud
 - Tester avec le script test_connection.py
 ```
 
-*** Fichier Excel non trouvé : ***
- 
-*** Utiliser des chemins absolus ***
+*### 🐛 Fichier Excel non trouvé
+- **Utiliser des chemins absolus**  
+- **Vérifier les permissions du fichier**  
+- ***Format attendu : `.xlsx` (pas `.xls` ou `.csv`)***
 
-*** Vérifier les permissions du fichier ***
+---
 
-Format : .xlsx (pas .xls ou .csv)
-
-# 📄 Structure du projet
-
+### 📄 Structure du projet
+```bash
 email-sender/
 ├── data/
 │   └── contacts.xlsx    # Fichier des destinataires
@@ -98,10 +94,9 @@ email-sender/
 ├── .env                 # Configuration sensible
 ├── main.py              # Script principal
 └── README.md
+```
 
-# 📌 Limitations
-Limite iCloud : ~100 emails/jour
-
-Taille max des pièces jointes : 20MB
-
-Délai recommandé entre les envois : 5 secondes
+### 📌 Limitations
+- **Limite iCloud** : ~100 emails/jour  
+- **Taille max des pièces jointes** : 20MB  
+- **Délai recommandé entre les envois** : 5 secondes
