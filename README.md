@@ -37,19 +37,26 @@ Structure minimale :
 Sauvegarder le fichier en `.xlsx`.
 
 #### 2. Configuration du script
-Créer un fichier `.env` :
+Configuration de la variable CONFIG dans `main.py` :
 
-```env
-ICLOUD_EMAIL="votre@icloud.com"
-ICLOUD_APP_PASSWORD="xxxx-xxxx-xxxx-xxxx"
-EXCEL_PATH="chemin/vers/fichier.xlsx"
-ATTACHMENT_PATH="chemin/vers/piece_jointe.pdf"
+```python
+CONFIG = {
+    "EXCEL_PATH": "path/to/excel_file.xlsx",
+    "EMAIL_COLUMN": "Email",
+    "SMTP_SERVER": "smtp.mail.me.com",
+    "SMTP_PORT": 587,
+    "SENDER_EMAIL": "your_email@icloud.com",
+    "APP_PASSWORD": "your_app_specific_password",
+    "ATTACHMENT_PATH": "path/to/attachment.pdf",
+    "EMAIL_SUBJECT": "Candidature professionnelle",
+    "THROTTLE_DELAY": 5  # Secondes entre les envois
+}
 ```
 
 ### 3. Générer un mot de passe d'application Apple
 - Aller sur [appleid.apple.com](https://appleid.apple.com)  
 - Section **"Sécurité"** → **"Générer un mot de passe..."**  
-- Utiliser ce mot de passe dans le fichier `.env`.
+- Utiliser ce mot de passe dans le CONFIG `main.py`.
 
 ---
 
@@ -61,7 +68,7 @@ python main.py
 ```
 
 ### ⚠️ Sécurité
-- Ne jamais commiter le fichier `.env`.
+- Ne jamais commiter le fichier modifier `main.py`.
 - Utiliser toujours des mots de passe d'application.
 - Vérifier les permissions du fichier Excel.
 
@@ -91,7 +98,6 @@ email-sender/
 │   └── contacts.xlsx    # Fichier des destinataires
 ├── attachments/
 │   └── document.pdf     # Pièces jointes
-├── .env                 # Configuration sensible
 ├── main.py              # Script principal
 └── README.md
 ```
